@@ -6,7 +6,7 @@
 # of which represents a transfer of KelloggCoin from one user to another – transactions 
 # with no from_user are from the "ICO" (Initial Coin Offering)
 
-blockchain = [
+transaction = [
   { from_user: nil, to_user: "ben", amount: 20000 },
   { from_user: nil, to_user: "brian", amount: 20000 },
   { from_user: "ben", to_user: "evan", amount: 9000 },
@@ -32,25 +32,24 @@ brians = 0
 evans = 0
 anthonys = 0
 
-if transaction[:to_user] == "ben"
-  bens = bens + transaction[:amount]
-elsif transaction[:to_user] == "brian"
-  brians = brians + transaction[:amount]
-elsif transaction[:to_user] == "evan"
-  evans = evans + transaction[:amount]
-elsif transaction[:to_user] == "anthony"
-  anthonys = anthonys + transaction[:amount]
-end
-end
-
 if transaction[:from_user] == "ben"
   bens = bens - transaction[:amount]
 elsif transaction[:from_user] == "brian"
   brians = brians - transaction[:amount]
 elsif transaction[:from_user] == "evan"
   evans= evans - transaction[:amount]
-elsif transaction[:from_user] == "nathan"
+elsif transaction[:from_user] == "anthony"
   anthonys = anthonys- transaction[:amount]
+end
+
+if transaction[:to_user] == "ben"
+  bens = bens + transaction [:amount]
+elsif transaction[:to_user] == "brian"
+  brians = brians + transaction[:amount]
+elsif transaction[:to_user] == "evan"
+  evans = evans + transaction[:amount]
+elsif transaction[:to_user] == "anthony"
+  anthonys = anthonys + transaction[:amount]
 end
 
 puts "Ben's KelloggCoin balance is #{bens}"
